@@ -9,7 +9,7 @@ export const Home = (chatWith) => {
 
   return /*html*/ `
     <div class="dark:bg-sg-darkblue">
-      <div class="flex">
+      <div class="flex h-screen overflow-hidden">
         ${Sidebar()}
         ${ChatList()}
         ${Chat(chatWith)}

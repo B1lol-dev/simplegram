@@ -3,7 +3,7 @@ export const ChatList = () => {
   console.log(chats);
 
   return /*html*/ `
-    <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700">
+    <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700 overflow-y-scroll">
         ${chats.map((chat) => {
           return /*html*/ `
             <a href="/chat/${chat.with}">

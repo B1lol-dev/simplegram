@@ -21,7 +21,7 @@ export const Chat = (chatWith) => {
       send_message[0].value = "";
 
       setTimeout(() => {
-        messages.innerHTML += MsgAnother("Hello");
+        messages.innerHTML += MsgAnother("Ok");
       }, 500);
     });
   });
@@ -34,15 +34,18 @@ export const Chat = (chatWith) => {
                     <div class="h-18 w-18 bg-orange-400 flex justify-center items-center text-white font-bold text-3xl rounded-full">
                         ${chatWith.substring(0, 1).toUpperCase()}
                     </div>
-                    <h1 class="capitalize text-4xl font-semibold">${chatWith}</h1>
+                    <div>
+                        <h1 class="capitalize text-4xl font-semibold">${chatWith}</h1>
+                        <p id="chat_with_status" class="text-gray-600">Online</p>
+                    </div>
                 </div>
             </nav>
         </header>
-        <div id="chat_body" class="w-full h-[90%] flex flex-col justify-between">
-            <div id="messages" class="w-full h-full overflow-y-auto flex flex-col p-3 items-start">
+        <div id="chat_body" class="w-full h-[90%] flex flex-col justify-end relative">
+            <div id="messages" class="w-full h-full overflow-y-scroll flex flex-col p-3 items-start">
                 
             </div>
-            <form id="send_message" class="w-[90%] h-15 flex mx-auto relative mb-3">
+            <form id="send_message" class="w-[80%] h-15 flex mx-auto relative mb-3 bg-none">
                 <input type="text" placeholder="Write text..." class="h-full w-full px-5 bg-sg-white rounded-[30px] outline-none border-none">
                 <button type="submit" class="absolute right-0 top-[50%] -translate-y-[50%] h-15 w-15 bg-sg-aqua rounded-full flex items-center justify-center">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale-125">
