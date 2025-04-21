@@ -20,23 +20,24 @@ export const Register = () => {
         const user = {
           username: e.target[0].value,
           password: e.target[1].value,
+          chats: [],
         };
 
         localStorage.setItem("user", JSON.stringify(user));
 
-        location.pathname = "/chat";
+        location.pathname = "/";
       }
     });
   });
 
   return /*html*/ `
-    <div class="flex dark:bg-hg-black h-screen w-screen items-center justify-center">
-        <form id="register_form" class="bg-hg-white h-fit flex flex-col p-8 rounded-lg gap-4">
+    <div class="flex dark:bg-sg-black h-screen w-screen items-center justify-center">
+        <form id="register_form" class="bg-sg-white h-fit flex flex-col p-8 rounded-lg gap-4">
             <input type="text" placeholder="username" class="p-2 border border-hg-gray rounded-lg">
-            <input type="password" placeholder="password" class="p-2 border border-hg-gray rounded-lg">
-            <input type="password" placeholder="repeat password" class="p-2 border border-hg-gray rounded-lg">
-            <button type="submit" class="bg-hg-aqua p-2 text-hg-white mt-3 rounded-lg">Register</button>
-            <a href="/login" class="text-sm text-hg-aqua">Already have an account?</a>
+            <input type="password" placeholder="password" class="p-2 border border-sg-gray rounded-lg">
+            <input type="password" placeholder="repeat password" class="p-2 border border-sg-gray rounded-lg">
+            <button type="submit" class="bg-sg-aqua p-2 text-sg-white mt-3 rounded-lg">Register</button>
+            <a href="/login" class="text-sm text-sg-aqua">Already have an account?</a>
         </form>    
     </div>
     `;

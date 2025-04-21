@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-hg-black: #0d1c2e;
-  --color-hg-aqua: #2a8bf2;
-  --color-hg-red: #ff3366;
-  --color-hg-gray: #707c97;
-  --color-hg-lightgray: #e6ecfe;
-  --color-hg-white: #fafbff;
+  --color-sg-black: #0d1c2e;
+  --color-sg-darkblue: #082141;
+  --color-sg-aqua: #2a8bf2;
+  --color-sg-red: #ff3366;
+  --color-sg-gray: #707c97;
+  --color-sg-lightgray: #e6ecfe;
+  --color-sg-white: #fafbff;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -15,6 +16,10 @@ button {
   cursor: pointer;
 }
 
-body {
-  background: var(--color-hg-lightgray);
+html {
+  background: var(--color-sg-lightgray);
+
+  &.dark {
+    background: var(--color-sg-darkblue);
+  }
 }
