@@ -1,6 +1,8 @@
 import { MsgAnother } from "./Message/MsgAnother";
 import { MsgMy } from "./Message/MsgMy";
 
+import { fetchGPT } from "../utils/fetchGPT";
+
 export const Chat = (chatWith) => {
   if (!chatWith) {
     return "";
@@ -10,6 +12,8 @@ export const Chat = (chatWith) => {
     const send_message = document.getElementById("send_message");
     const messages = document.getElementById("messages");
 
+    const chat_with_status = document.getElementById("chat_with_status");
+
     send_message.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -18,11 +22,17 @@ export const Chat = (chatWith) => {
       }
 
       messages.innerHTML += MsgMy(send_message[0].value);
-      send_message[0].value = "";
 
-      setTimeout(() => {
-        messages.innerHTML += MsgAnother("Ok");
-      }, 500);
+      fetchGPT(send_message[0].value)
+        .then((response) => {
+          messages.innerHTML += MsgAnother(response);
+          chat_with_status.innerText = "Online";
+        })
+        .catch((err) => {
+          console.error("The sample encountered an error:", err);
+        });
+
+      send_message[0].value = "";
     });
   });
 
