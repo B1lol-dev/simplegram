@@ -2,7 +2,6 @@ import { createRouter } from "routerjs";
 
 // components
 import { Admin } from "./pages/Admin/Admin";
-import { Chat } from "./pages/Chat/Chat";
 import { Home } from "./pages/Home/Home";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Register } from "./pages/Auth/Register";
@@ -16,8 +15,9 @@ export const Router = (root) => {
     .get("/admin", () => {
       root.innerHTML = Admin();
     })
-    .get("/chat", () => {
-      root.innerHTML = Chat();
+    .get("/chat/:chatWith", (req, context) => {
+      const chatWIth = req.get("chatWith");
+      root.innerHTML = Home(chatWIth);
     })
     .get("/register", () => {
       root.innerHTML = Register();

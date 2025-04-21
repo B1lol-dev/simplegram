@@ -5,4 +5,9 @@ import { toggleTheme } from "./utils/toggleTheme";
 // initialize router
 Router(document.getElementById("app"));
 
-// toggleTheme();
+// theme
+if (localStorage.getItem("isDarkMode") === "true") {
+  document.querySelector("html").classList.add("dark");
+} else {
+  document.querySelector("html").classList.remove("dark");
+}

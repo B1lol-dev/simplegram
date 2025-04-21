@@ -6,19 +6,19 @@ export const Login = () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (!e.target[0].value) {
+      if (!e.target[0].value.trim()) {
         return null;
       }
 
-      if (!e.target[1].value) {
+      if (!e.target[1].value.trim()) {
         return null;
       }
 
       const user = JSON.parse(localStorage.getItem("user"));
 
       if (
-        e.target[0].value === user?.username &&
-        e.target[1].value === user?.password
+        e.target[0].value.trim() === user?.username &&
+        e.target[1].value.trim() === user?.password
       ) {
         location.pathname = "/";
       } else {

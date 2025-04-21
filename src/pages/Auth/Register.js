@@ -4,23 +4,28 @@ export const Register = () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (!e.target[0].value) {
+      if (!e.target[0].value.trim()) {
         return null;
       }
 
-      if (!e.target[1].value) {
+      if (!e.target[1].value.trim()) {
         return null;
       }
 
-      if (!e.target[2].value) {
+      if (!e.target[2].value.trim()) {
         return null;
       }
 
-      if (e.target[1].value === e.target[2].value) {
+      if (e.target[1].value.trim() === e.target[2].value.trim()) {
         const user = {
-          username: e.target[0].value,
-          password: e.target[1].value,
-          chats: [],
+          username: e.target[0].value.trim(),
+          password: e.target[1].value.trim(),
+          chats: [
+            {
+              with: "john",
+              messages: [],
+            },
+          ],
         };
 
         localStorage.setItem("user", JSON.stringify(user));
