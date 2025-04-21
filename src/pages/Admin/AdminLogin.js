@@ -1,6 +1,10 @@
 import { showAlert } from "../../utils/showAlert";
 
 export const AdminLogin = () => {
+  if (!localStorage.getItem("user")) {
+    location.pathname = "/";
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("admin_login_form");
     form.addEventListener("submit", (e) => {

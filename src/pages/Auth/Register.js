@@ -23,7 +23,6 @@ export const Register = () => {
           chats: [
             {
               with: "john",
-              messages: [],
             },
           ],
         };

@@ -4,10 +4,11 @@ export const ChatList = () => {
 
   return /*html*/ `
     <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700 overflow-y-scroll">
-        ${chats.map((chat) => {
-          return /*html*/ `
+        ${chats
+          .map((chat) => {
+            return /*html*/ `
             <a href="/chat/${chat.with}">
-                <button type="button" class="flex items-center bg-sg-gray p-2 w-full gap-3">
+                <button type="button" class="flex items-center bg-sg-gray p-2 w-full gap-3 border-t transition hover:opacity-85">
                     <div class="h-10 w-10 bg-orange-400 flex items-center justify-center text-white rounded-full">
                         ${String(chat.with).substring(0, 1).toUpperCase()}
                     </div>
@@ -17,7 +18,8 @@ export const ChatList = () => {
                 </button>
             </a>
           `;
-        })}
+          })
+          .join("")}
     </div>
     `;
 };
