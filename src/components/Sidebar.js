@@ -1,8 +1,6 @@
 import { toggleTheme } from "../utils/toggleTheme";
 
 export const Sidebar = () => {
-  let isOpen = false;
-
   const user = JSON.parse(localStorage.getItem("user"));
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -10,6 +8,7 @@ export const Sidebar = () => {
     const exit_btn = document.getElementById("exit_btn");
 
     toggle_theme_btn.addEventListener("click", toggleTheme);
+
     exit_btn.addEventListener("click", () => {
       window.close();
     });

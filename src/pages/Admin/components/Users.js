@@ -7,7 +7,6 @@ export const Users = () => {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const users = user?.chats;
-  console.log(users);
 
   document.addEventListener("DOMContentLoaded", () => {
     const admin_users = document.getElementById("admin_users");

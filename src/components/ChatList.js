@@ -1,6 +1,5 @@
 export const ChatList = () => {
   const chats = Object(JSON.parse(localStorage.getItem("user")))?.chats;
-  console.log(chats);
 
   return /*html*/ `
     <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700 overflow-y-scroll">
