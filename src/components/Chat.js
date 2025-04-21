@@ -25,7 +25,7 @@ export const Chat = (chatWith) => {
       chat_with_status.innerText = "Typing...";
 
       setTimeout(() => {
-        fetchGPT(send_message[0].value)
+        fetchGPT(send_message[0].value, chatWith)
           .then((response) => {
             messages.innerHTML += MsgAnother(response);
             chat_with_status.innerText = "Online";

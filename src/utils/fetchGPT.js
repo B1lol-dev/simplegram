@@ -5,7 +5,7 @@ const token = import.meta.env.VITE_TOKEN;
 const endpoint = "https://models.github.ai/inference";
 const model = "openai/gpt-4.1";
 
-export async function fetchGPT(userMsg) {
+export async function fetchGPT(userMsg, name) {
   const client = ModelClient(endpoint, new AzureKeyCredential(token));
 
   const response = await client.path("/chat/completions").post({
@@ -13,8 +13,7 @@ export async function fetchGPT(userMsg) {
       messages: [
         {
           role: "system",
-          content:
-            "You are a friend. your name is John. DO NOT ANSWER USING MARKDOWN!",
+          content: `You are a friend. your name is ${name}. DO NOT ANSWER USING MARKDOWN!`,
         },
         { role: "user", content: userMsg },
       ],
