@@ -1,5 +1,15 @@
+import { Sidebar } from "./components/Sidebar";
+
 export const Admin = () => {
+  if (!localStorage.getItem("isAdmin")) {
+    location.pathname = "/admin/login";
+  }
+
   return /*html*/ `
-    <h1>Admin</h1>
+    <div class="dark:bg-sg-darkblue">
+      <div class="flex h-screen overflow-hidden">
+        ${Sidebar()}
+      </div>
+    </div>
   `;
 };

@@ -1,6 +1,6 @@
 import { showAlert } from "../../utils/showAlert";
 
-export const Login = () => {
+export const AdminLogin = () => {
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("admin_login_form");
     form.addEventListener("submit", (e) => {
@@ -15,10 +15,11 @@ export const Login = () => {
       }
 
       if (
-        e.target[0].value.trim() === user?.username &&
-        e.target[1].value.trim() === user?.password
+        e.target[0].value.trim() === import.meta.env.VITE_ADMIN_USERNAME &&
+        e.target[1].value.trim() === import.meta.env.VITE_ADMIN_PASSWORD
       ) {
-        location.pathname = "/";
+        localStorage.setItem("isAdmin", "true");
+        location.pathname = "/admin";
       } else {
         showAlert("error", "username or password is incorrect");
       }

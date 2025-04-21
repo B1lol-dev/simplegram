@@ -22,17 +22,19 @@ export const Chat = (chatWith) => {
       }
 
       messages.innerHTML += MsgMy(send_message[0].value);
+      chat_with_status.innerText = "Typing...";
 
-      fetchGPT(send_message[0].value)
-        .then((response) => {
-          messages.innerHTML += MsgAnother(response);
-          chat_with_status.innerText = "Online";
-        })
-        .catch((err) => {
-          console.error("The sample encountered an error:", err);
-        });
-
-      send_message[0].value = "";
+      setTimeout(() => {
+        fetchGPT(send_message[0].value)
+          .then((response) => {
+            messages.innerHTML += MsgAnother(response);
+            chat_with_status.innerText = "Online";
+            send_message[0].value = "";
+          })
+          .catch((err) => {
+            console.error("The sample encountered an error:", err);
+          });
+      }, 1000);
     });
   });
 

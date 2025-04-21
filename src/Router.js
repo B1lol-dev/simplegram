@@ -6,6 +6,7 @@ import { Home } from "./pages/Home/Home";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Register } from "./pages/Auth/Register";
 import { Login } from "./pages/Auth/Login";
+import { AdminLogin } from "./pages/Admin/AdminLogin";
 
 export const Router = (root) => {
   createRouter()
@@ -14,6 +15,9 @@ export const Router = (root) => {
     })
     .get("/admin", () => {
       root.innerHTML = Admin();
+    })
+    .get("/admin/login", () => {
+      root.innerHTML = AdminLogin();
     })
     .get("/chat/:chatWith", (req, context) => {
       const chatWIth = req.get("chatWith");
