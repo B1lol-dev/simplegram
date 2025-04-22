@@ -23,7 +23,16 @@ export const Router = (root) => {
     })
     .get("/chat/:chatWith", (req, context) => {
       const chatWIth = req.get("chatWith");
-      root.innerHTML = Home(chatWIth);
+
+      const isChatFound = JSON.parse(localStorage.getItem("user"))?.chats?.some(
+        (chat) => location.pathname === `/chat/${chat.with}`
+      );
+
+      if (!isChatFound) {
+        root.innerHTML = NotFound();
+      } else {
+        root.innerHTML = Home(chatWIth);
+      }
     })
     .get("/register", () => {
       root.innerHTML = Register();
