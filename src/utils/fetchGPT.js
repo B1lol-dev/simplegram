@@ -25,6 +25,7 @@ export async function fetchGPT(userMsg, name) {
 
   if (isUnexpected(response)) {
     throw response.body.error;
+    return response.body.error;
   }
 
   return response.body.choices[0].message.content;

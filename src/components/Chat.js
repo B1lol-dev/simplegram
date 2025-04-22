@@ -2,6 +2,7 @@ import { MsgAnother } from "./Message/MsgAnother";
 import { MsgMy } from "./Message/MsgMy";
 
 import { fetchGPT } from "../utils/fetchGPT";
+import { fetchAI } from "../utils/fetchAI";
 
 export const Chat = (chatWith) => {
   if (!chatWith) {
@@ -25,9 +26,9 @@ export const Chat = (chatWith) => {
       chat_with_status.innerText = "Typing...";
 
       setTimeout(() => {
-        fetchGPT(send_message[0].value, chatWith)
-          .then((response) => {
-            messages.innerHTML += MsgAnother(response);
+        fetchAI(send_message[0].value, chatWith)
+          .then((res) => {
+            messages.innerHTML += MsgAnother(res);
             chat_with_status.innerText = "Online";
             send_message[0].value = "";
           })

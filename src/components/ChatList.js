@@ -2,7 +2,7 @@ export const ChatList = () => {
   const chats = Object(JSON.parse(localStorage.getItem("user")))?.chats;
 
   return /*html*/ `
-    <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700 overflow-y-scroll">
+    <div class="h-screen w-70 bg-gray-300 dark:bg-gray-700 overflow-y-scroll max-[700px]:overflow-x-hidden max-[700px]:w-20">
         ${chats
           .map((chat) => {
             return /*html*/ `
@@ -11,7 +11,7 @@ export const ChatList = () => {
                     <div class="h-10 w-10 bg-orange-400 flex items-center justify-center text-white rounded-full">
                         ${String(chat.with).substring(0, 1).toUpperCase()}
                     </div>
-                    <h2 class="capitalize text-sg-white font-semibold">${
+                    <h2 class="capitalize text-sg-white font-semibold max-[700px]:hidden">${
                       chat.with
                     }</h2>
                 </button>

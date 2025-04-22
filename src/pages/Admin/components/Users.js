@@ -49,7 +49,7 @@ export const Users = () => {
   });
 
   return /*html*/ `
-    <div class="w-full p-10 grid grid-cols-5 gap-5 items-start overflow-y-scroll" id="admin_users">
+    <div class="w-full p-10 grid grid-cols-5 gap-5 items-start overflow-y-scroll max-[1500px]:grid-cols-4 max-[1200px]:grid-cols-3 max-[900px]:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:overflow-x-hidden" id="admin_users">
             ${users
               .map((user) => {
                 return UserCard(user);

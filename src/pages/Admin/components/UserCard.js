@@ -26,7 +26,7 @@ export const UserCard = (userInfo) => {
   });
 
   return /*html*/ `
-        <div class="user_card p-5 rounded-lg bg-white flex flex-col items-center min-w-60">
+        <div class="user_card p-5 rounded-lg bg-white flex flex-col items-center w-60">
             <div class="text-sg-white h-18 w-18 bg-orange-500 flex justify-center items-center rounded-full text-4xl select-none font-bold">
                 ${userInfo?.with.substring(0, 1).toUpperCase()}
             </div>
