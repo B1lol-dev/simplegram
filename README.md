@@ -9,7 +9,7 @@ Simplegram is a lightweight web application built with Vite, Vanilla JavaScript,
 - **User Authentication**:
   - Login and register functionality.
 - **AI Chat**:
-  - Chat with an AI powered by ChatGPT 4.1 API.
+  - Chat with an AI powered by OpenAi's "ChatGPT 4.1 API", and io.net's models
 - **Modern Frontend**:
   - Built with Vite for fast development.
   - Styled with TailwindCSS for a responsive and clean UI.
@@ -56,7 +56,8 @@ Simplegram is a lightweight web application built with Vite, Vanilla JavaScript,
 - **Vanilla JavaScript**: Lightweight and efficient scripting.
 - **TailwindCSS**: Utility-first CSS framework for styling.
 - **Router.js**: Simple client-side routing.
-- **ChatGPT 4.1 API**: AI-powered chat functionality.
+- **Openai**: AI-powered chat functionality.
+- **Io.net**: AI-powered chat functionality.
 
 ## License
 
@@ -67,6 +68,7 @@ This project is licensed under the [MIT License](LICENSE).
 - [Vite](https://vitejs.dev/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [OpenAI ChatGPT API](https://openai.com/)
+- [Io.net](https://io.net/)
 - [Router.js](https://github.com/ramiel/router.js)
 
 Feel free to contribute and improve this project!
