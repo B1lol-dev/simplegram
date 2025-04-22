@@ -47,7 +47,7 @@ export const Chat = (chatWith) => {
     send_message.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      if (!send_message[0].value) {
+      if (!send_message[0].value.trim()) {
         return null;
       }
 
@@ -57,7 +57,7 @@ export const Chat = (chatWith) => {
       setTimeout(() => {
         fetchAI(
           send_message[0].value,
-          `You are a friend. your name is ${chatWith}. DO NOT ANSWER USING MARKDOWN!, my name is ${user?.username}, and if user write you in uzbek language answer using uzbek, if not then answer in other language that user speaks. chat history is ${messagesData}`
+          `You are a friend. your name is ${chatWith}. DO NOT ANSWER USING MARKDOWN!, my name is ${user?.username}, and if user write you in uzbek language answer using uzbek, if not then answer in other language that user speaks. chat history is ${messagesData} read history and answer logicly if in history you greet me then dont greet me again`
         )
           .then((res) => {
             messages.innerHTML += MsgAnother(res);
@@ -92,7 +92,7 @@ export const Chat = (chatWith) => {
         </header>
         <div id="chat_body" class="w-full h-[90%] flex flex-col justify-end relative">
             <div id="messages" class="w-full h-full overflow-y-scroll flex flex-col p-3 items-start">
-                
+            
             </div>
             <form id="send_message" class="w-[80%] h-15 flex mx-auto relative mb-3 bg-none">
                 <input type="text" placeholder="Write text..." class="h-full w-full px-5 bg-sg-white rounded-[30px] outline-none border-none">
