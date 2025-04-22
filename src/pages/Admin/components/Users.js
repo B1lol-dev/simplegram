@@ -44,6 +44,7 @@ export const Users = () => {
             {
               with: admin_user_add_modal_username.value.trim().toLowerCase(),
               bio: admin_user_add_modal_bio.value.trim(),
+              messages: [],
             },
           ],
         })

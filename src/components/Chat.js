@@ -16,6 +16,34 @@ export const Chat = (chatWith) => {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
+    const messagesData = Array.from(
+      user?.chats.find((chat) => chat.with === chatWith).messages
+    );
+
+    messagesData.map((msg) => {
+      if (msg.isMine) {
+        messages.innerHTML += MsgMy(msg.text);
+      } else {
+        messages.innerHTML += MsgAnother(msg.text);
+      }
+    });
+
+    function saveMsg(isMine, text) {
+      const user = JSON.parse(localStorage.getItem("user"));
+      const chat = user.chats.find((chat) => chat.with === chatWith);
+
+      if (chat) {
+        chat.messages.push({ isMine: isMine, text });
+      } else {
+        user.chats.push({
+          with: chatWith,
+          messages: [{ isMine: isMine, text }],
+        });
+      }
+
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+
     send_message.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -29,10 +57,12 @@ export const Chat = (chatWith) => {
       setTimeout(() => {
         fetchAI(
           send_message[0].value,
-          `You are a friend. your name is ${chatWith}. DO NOT ANSWER USING MARKDOWN!, my name is ${user?.username}`
+          `You are a friend. your name is ${chatWith}. DO NOT ANSWER USING MARKDOWN!, my name is ${user?.username}, and if user write you in uzbek language answer using uzbek, if not then answer in other language that user speaks. chat history is ${messagesData}`
         )
           .then((res) => {
             messages.innerHTML += MsgAnother(res);
+            saveMsg(true, send_message[0].value);
+            saveMsg(false, res);
             chat_with_status.innerText = "Online";
             send_message[0].value = "";
           })

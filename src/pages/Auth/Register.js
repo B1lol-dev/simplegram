@@ -25,6 +25,7 @@ export const Register = () => {
             {
               with: "john",
               bio: "Hello my name is john and im a cool guy",
+              messages: [],
             },
           ],
         };
