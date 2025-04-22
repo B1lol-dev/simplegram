@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-export const fetchAI = async (userMsg, name) => {
+export const fetchAI = async (userMsg, context) => {
   const openai = new OpenAI({
     apiKey: import.meta.env.VITE_AI_TOKEN,
     baseURL: "https://api.intelligence.io.solutions/api/v1/",
@@ -12,7 +12,7 @@ export const fetchAI = async (userMsg, name) => {
     messages: [
       {
         role: "system",
-        content: `You are a friend. your name is ${name}. DO NOT ANSWER USING MARKDOWN!`,
+        content: context,
       },
       {
         role: "user",

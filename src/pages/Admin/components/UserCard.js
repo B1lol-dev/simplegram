@@ -32,6 +32,9 @@ export const UserCard = (userInfo) => {
             </div>
             <h1 class="capitalize mt-2 font-semibold">${userInfo?.with}</h1>
             <p class="text-sm text-sg-gray">@${userInfo?.with}</p>
+            <h2 class="mt-2">${
+              userInfo?.bio || "<span class='text-sg-gray'>No bio...</span>"
+            }</h2>
             <button type="button" class="bg-red-500 text-sg-white rounded-lg p-1 mt-5 w-[80%]">Remove</button>
         </div>
     `;

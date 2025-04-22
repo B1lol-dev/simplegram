@@ -20,9 +20,11 @@ export const Register = () => {
         const user = {
           username: e.target[0].value.trim(),
           password: e.target[1].value.trim(),
+          bio: "",
           chats: [
             {
               with: "john",
+              bio: "Hello my name is john and im a cool guy",
             },
           ],
         };

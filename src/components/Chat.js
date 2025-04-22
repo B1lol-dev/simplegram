@@ -1,7 +1,6 @@
 import { MsgAnother } from "./Message/MsgAnother";
 import { MsgMy } from "./Message/MsgMy";
 
-import { fetchGPT } from "../utils/fetchGPT";
 import { fetchAI } from "../utils/fetchAI";
 
 export const Chat = (chatWith) => {
@@ -15,6 +14,8 @@ export const Chat = (chatWith) => {
 
     const chat_with_status = document.getElementById("chat_with_status");
 
+    const user = JSON.parse(localStorage.getItem("user"));
+
     send_message.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -26,7 +27,10 @@ export const Chat = (chatWith) => {
       chat_with_status.innerText = "Typing...";
 
       setTimeout(() => {
-        fetchAI(send_message[0].value, chatWith)
+        fetchAI(
+          send_message[0].value,
+          `You are a friend. your name is ${chatWith}. DO NOT ANSWER USING MARKDOWN!, my name is ${user?.username}`
+        )
           .then((res) => {
             messages.innerHTML += MsgAnother(res);
             chat_with_status.innerText = "Online";
@@ -43,15 +47,17 @@ export const Chat = (chatWith) => {
     <div class="w-full">
         <header class="py-3 px-8 bg-blue-400 w-full">
             <nav class="flex">
-                <div class="flex items-center gap-4">
-                    <div class="h-18 w-18 bg-orange-400 flex justify-center items-center text-white font-bold text-3xl rounded-full">
-                        ${chatWith.substring(0, 1).toUpperCase()}
-                    </div>
-                    <div>
-                        <h1 class="capitalize text-4xl font-semibold">${chatWith}</h1>
-                        <p id="chat_with_status" class="text-gray-600">Online</p>
-                    </div>
-                </div>
+                <a href="/profile/${chatWith}">
+                  <div class="flex items-center gap-4">
+                      <div class="h-18 w-18 bg-orange-400 flex justify-center items-center text-white font-bold text-3xl rounded-full">
+                          ${chatWith.substring(0, 1).toUpperCase()}
+                      </div>
+                      <div>
+                          <h1 class="capitalize text-4xl font-semibold">${chatWith}</h1>
+                          <p id="chat_with_status" class="text-gray-600">Online</p>
+                      </div>
+                  </div>
+                </a>
             </nav>
         </header>
         <div id="chat_body" class="w-full h-[90%] flex flex-col justify-end relative">
