@@ -12,7 +12,8 @@ export const UserCard = (userInfo) => {
     user_card_remove_btn.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const removingUser =
-          e.target.previousElementSibling.previousElementSibling.innerText.toLowerCase();
+          e.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText.toLowerCase();
+        console.log(removingUser);
         const updatedUsers = users.filter(
           (user) => user?.with.toLowerCase() !== removingUser
         );
