@@ -33,7 +33,7 @@ export const Login = () => {
                 <input type="text" placeholder="username" class="p-2 border border-sg-gray rounded-lg">
                 <input type="password" placeholder="password" class="p-2 border border-sg-gray rounded-lg">
                 <button type="submit" class="bg-sg-aqua p-2 text-sg-white mt-3 rounded-lg">Login</button>
-                <a href="/register" class="text-sm text-sg-aqua">Don't have an account?</a>
+                <a href="/register" onclick="location.pathname='/register'" class="text-sm text-sg-aqua">Don't have an account?</a>
             </form>    
         </div>
         `;

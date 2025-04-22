@@ -44,7 +44,7 @@ export const Register = () => {
             <input type="password" placeholder="password" class="p-2 border border-sg-gray rounded-lg">
             <input type="password" placeholder="repeat password" class="p-2 border border-sg-gray rounded-lg">
             <button type="submit" class="bg-sg-aqua p-2 text-sg-white mt-3 rounded-lg">Register</button>
-            <a href="/login" class="text-sm text-sg-aqua">Already have an account?</a>
+            <a href="/login" onclick="location.pathname='/login'" class="text-sm text-sg-aqua">Already have an account?</a>
         </form>    
     </div>
     `;

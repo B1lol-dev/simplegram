@@ -6,7 +6,7 @@ export const ChatList = () => {
         ${chats
           .map((chat) => {
             return /*html*/ `
-            <a href="/chat/${chat.with}">
+            <a href="#" onclick="location.href='/chat/${chat.with}'">
                 <button type="button" class="flex items-center bg-sg-gray p-2 w-full gap-3 border-t transition hover:opacity-85">
                     <div class="h-10 w-10 bg-orange-400 flex items-center justify-center text-white rounded-full">
                         ${String(chat.with).substring(0, 1).toUpperCase()}
