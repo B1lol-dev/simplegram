@@ -28,10 +28,7 @@ export const Users = () => {
       const admin_user_add_modal_username = admin_user_add_modal.children[1];
       const admin_user_add_modal_bio = admin_user_add_modal.children[2];
 
-      if (
-        !admin_user_add_modal_username.value ||
-        !admin_user_add_modal_bio.value
-      ) {
+      if (!admin_user_add_modal_username.value) {
         return null;
       }
 
